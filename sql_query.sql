@@ -1,0 +1,6 @@
+
+CREATE DATABASE contact_book;
+
+USE contact_book;
+
+CREATE TABLE contacts(id Int PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50) NOT NULL,surname VARCHAR(50) NOT NULL,  email VARCHAR(50) NOT NULL, phone VARCHAR(50) NOT NULL,  image_name VARCHAR(255));
