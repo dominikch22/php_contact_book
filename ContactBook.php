@@ -11,6 +11,10 @@ class ContactBook {
         $original_filename = basename($_FILES["image"]["name"]);
         $file_extension = pathinfo($original_filename, PATHINFO_EXTENSION);    
 
+        if(isset($_FILES["image"])){
+            echo "lack of file";
+        }
+
         $image_name = uniqid() . "." . $file_extension;  
 
 
@@ -33,7 +37,17 @@ class ContactBook {
     }
 
     function getContacts(){
-        
+        $sql = "SELECT * FROM contacts";
+        $result = $this->connection->query($sql);
+        $contacts = [];
+
+
+        while($row = $result->fetch_assoc()){
+            $contacts[] = $row;
+        }
+
+        return $contacts;
+
     }
 
 }
